@@ -1,3 +1,4 @@
+//скрипт для автоматического создания базы данных для данного сайта
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;

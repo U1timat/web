@@ -1,11 +1,11 @@
-﻿
-<center>
+﻿//страница расположения магазина c использованием яндекс карт.
+<center> //заполнение основного(правого) блока страницы
 <font face='Monotype Corsiva' size='15px'>
 <head>Кондитерская</head>
 </font>
 </center>
 <link href='Style.css' rel='stylesheet' />
-    <script src='https://api-maps.yandex.ru/2.1/?lang=ru_RU' type='text/javascript'></script>
+    <script src='https://api-maps.yandex.ru/2.1/?lang=ru_RU' type='text/javascript'></script> //апишечка ЯндекКарт
     <script type='text/javascript'>
         ymaps.ready(init);
         var myMap,
@@ -25,7 +25,7 @@
             myMap.geoObjects.add(myPlacemark);
         }
     </script>
-<body>
+<body> //типовое заполнение левого блока страницы
 <form>
 <center>
 <table border='0' background='41.jpg'>

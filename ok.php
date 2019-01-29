@@ -1,8 +1,8 @@
 ﻿<?php
-session_start();
-$fio = $_GET['fio'];
-$phone = $_GET['phone'];
-$userid = $_SESSION['userid'];
+session_start(); //запускаем сессию
+$fio = $_GET['fio']; //заполнением ФИО запросом GET из базы
+$phone = $_GET['phone']; //так же телефон
+$userid = $_SESSION['userid']; //так же идентификатор пользователя
 
 echo "<html>
 <center>
@@ -29,7 +29,7 @@ echo "<html>
 <td  width='800px' align='center'><br/>
 <font face='Monotype Corsiva' size='15px'>Спасибо за заказ!</font></li>";
 
-$sqlhost="92.243.95.80";
+$sqlhost="92.243.95.80"; //подключаемся к базе
 $sqluser="candyshop";
 $sqlpass="dEpd66_5";
 $db="candyshop";
@@ -38,7 +38,7 @@ mysql_connect($sqlhost,$sqluser,$sqlpass)
 mysql_select_db($db) or die("Нет соединения с БД!".mysql_error());
 
 
-    $sql="insert into zakaz (fio,phone,userid)
+    $sql="insert into zakaz (fio,phone,userid) //вставляем запрос в базу на получение значений фамилии, телефона и идентификатора
 values('".$fio."','".$phone."','".$_SESSION['userid']."')"
         or die(mysql_error());
     mysql_query($sql);

@@ -1,7 +1,7 @@
 ﻿<?php
 
 
-function giveimage($ud){
+function giveimage($ud){ //получаем изображения категорий товара
     mysql_query("set names 'utf8'");
     $sql="SELECT * from candys where id='".$ud."'" or die(mysql_error());
     $data = mysql_query($sql);
@@ -11,13 +11,13 @@ function giveimage($ud){
 }
 
 
-session_start();
-include('repository.php');
+session_start(); //запускаем сессию
+include('repository.php'); //подключем генератор GUID
 if(!$_SESSION['userid'] )
 {
     $_SESSION['userid'] = GUID();
 }
-$sqlhost="92.243.95.80";
+$sqlhost="92.243.95.80"; //подключаемся к базе
 $sqluser="candyshop";
 $sqlpass="dEpd66_5";
 $db="candyshop";
@@ -47,7 +47,7 @@ echo "<html>
 <td  width='800px' align='center'>
 <font face='Monotype Corsiva' size='7px'>";
 
-if ($_GET['type']== 'Pie')
+if ($_GET['type']== 'Pie') //заполнение по категориям "пирожки" и "тортики"
 {
     echo "Пирожки";
 }
@@ -71,7 +71,7 @@ $data = mysql_query($sql);
 echo "<table border='0'>";
 
 
-while($line=mysql_fetch_array($data, MYSQL_NUM))
+while($line=mysql_fetch_array($data, MYSQL_NUM)) //цикл формирования ассортимента в виде таблицы	
 {
     echo "<tr><td width='33%'>";
     echo $line[1];

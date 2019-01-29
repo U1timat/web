@@ -1,14 +1,14 @@
 ﻿<?php
 $i=1;
 
-$amount;
-$sqlhost="92.243.95.80";
-$sqluser="candyshop";
-$sqlpass="dEpd66_5";
-$db="candyshop";
+$amount; //сумма
+$sqlhost="92.243.95.80"; //адрес базы
+$sqluser="candyshop"; //логин
+$sqlpass="dEpd66_5"; //пароль
+$db="candyshop"; //база данных
 
-function giveimage($ud){
-
+function giveimage($ud){ //получаем изображение
+ 
     $sql="SELECT * from candys where id='".$ud."'" or die(mysql_error());
     $data = mysql_query($sql);
 
@@ -18,7 +18,7 @@ function giveimage($ud){
     return "<img src='upload/". $line[3] ."' widht='25%' height='25%''/>";
 }
 
-function givename($ud){
+function givename($ud){ //получаем название
 mysql_query("set names 'utf8'");
     $sql="SELECT * from candys where id='".$ud."'" or die(mysql_error());
     $data = mysql_query($sql);
@@ -30,7 +30,7 @@ mysql_query("set names 'utf8'");
 }
 
 
-function giveusername($ud){
+function giveusername($ud){ //получаем GUID
 
     $sql="SELECT * from zakaz where id='".$userid."'" or die(mysql_error());
     $data = mysql_query($sql);
@@ -43,7 +43,7 @@ function giveusername($ud){
 
 
 
-function giveprice($ud){
+function giveprice($ud){ //получаем стоимость
 
     $sql="SELECT * from candys where id='".$ud."'" or die(mysql_error());
     $data = mysql_query($sql);
@@ -55,7 +55,7 @@ function giveprice($ud){
 }
 
 
-mysql_connect($sqlhost,$sqluser,$sqlpass)
+mysql_connect($sqlhost,$sqluser,$sqlpass) //подключаемся  кбазе
    or die("MySQL недоступна!".mysql_error());
 mysql_select_db($db) or die("Нет соединения с БД!".mysql_error());
 
@@ -69,8 +69,7 @@ echo "<table border=2 align='center'><tr><td>№</td><td>Название</td><t
 
 
 
-while($line=mysql_fetch_array($data, MYSQL_NUM))
-{
+while($line=mysql_fetch_array($data, MYSQL_NUM)) //цикл получения из базы названия заказанной позиции, фото, цены, количества и стомости
     echo "<tr align='center'>
     ";
     echo "

@@ -1,17 +1,17 @@
 ﻿li {
-    list-style-type: none; 
+    list-style-type: none;  //убираем маркеры списка
 }
 
 ul {
-    margin-left: 0; 
-    padding-left: 0; 
+    margin-left: 0; //задаем отступ слева Opera и IE
+    padding-left: 0; //задаем отступ слева Firefox и Chrome
 }
 
 
 div {
-    border: 1px solid red;
+    border: 1px solid red; //задаем линию вокруг элемента в 1 пиксель
 }
 
 li {
-    margin: 20px;
+    margin: 20px; //устанавливаем отступ от края элемента
 }

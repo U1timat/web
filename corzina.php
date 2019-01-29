@@ -1,16 +1,16 @@
 <?php
-session_start();
+session_start(); //начинаем сессию
 
 
-if(!$_SESSION['userid'] )
+if(!$_SESSION['userid'] ) //задаем сгенерированный GUID в качестве идентификатора пользователя
 {
     $_SESSION['userid'] = GUID();
 }
 
 
-include('repository.php');
+include('repository.php'); //подключаем генератор GUID
 
-function giveimage($ud){
+function giveimage($ud){ //функция получения изображения товара в соответствии с его ID
     mysql_query("set names 'utf8'");
     $sql="SELECT * from candys where id='".$ud."'" or die(mysql_error());
     $data = mysql_query($sql);
@@ -21,7 +21,7 @@ function giveimage($ud){
     return "<img src='upload/". $line[3] ."' widht='25%' height='25%''/>";
 }
 
-function givename($ud){
+function givename($ud){ //функция получения названия товара в соответствии с его ID
     mysql_query("set names 'utf8'");
     $sql="SELECT * from candys where id='".$ud."'" or die(mysql_error());
     $data = mysql_query($sql);
@@ -32,7 +32,7 @@ function givename($ud){
     return $line[1];
 }
 
-function giveprice($ud){
+function giveprice($ud){ //функция получения стоимости товара в соответствии с его ID
     mysql_query("set names 'utf8'");
     $sql="SELECT * from candys where id='".$ud."'" or die(mysql_error());
     $data = mysql_query($sql);
@@ -43,7 +43,7 @@ function giveprice($ud){
     return $line[2];
 }
 
-function counter ($ud)
+function counter ($ud) //получаем количество товара 
 
 {
     mysql_query("set names 'utf8'");
@@ -58,7 +58,7 @@ function counter ($ud)
 
 }
 
-$sqlhost="92.243.95.80";
+$sqlhost="92.243.95.80"; //подключаемся к базе
 $sqluser="candyshop";
 $sqlpass="dEpd66_5";
 $db="candyshop";
