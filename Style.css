@@ -1,0 +1,17 @@
+﻿li {
+    list-style-type: none; 
+}
+
+ul {
+    margin-left: 0; 
+    padding-left: 0; 
+}
+
+
+div {
+    border: 1px solid red;
+}
+
+li {
+    margin: 20px;
+}
