@@ -1,8 +1,8 @@
 ﻿<?php
 session_start(); //запускаем сессию
-$fio = $_GET['fio']; //заполнением ФИО запросом GET из базы
-$phone = $_GET['phone']; //так же телефон
-$userid = $_SESSION['userid']; //так же идентификатор пользователя
+$fio = ($_GET['fio']) ? $mysqli_real_escape_string($_get['fio']) : ''; //заполнением ФИО 
+$phone = ($_GET['phone']) ? $mysqli_real_escape_string(trim($_get['phone'])) : ''; //так же телефон
+$userid = ($_SESSION['userid']) ? $mysqli_real_escape_string(trim($_get['fio'])) : ''; //так же идентификатор пользователя
 
 echo "<html>
 <center>
@@ -36,10 +36,10 @@ require_once 'd:/shop/access/conf_acc.php'
    
 }
 
-    $sql="insert into zakaz (fio,phone,userid) //вставляем запрос в базу на получение значений фамилии, телефона и идентификатора
-values('".$fio."','".$phone."','".$_SESSION['userid']."')"
-        or die(mysql_error());
-    mysql_query($sql);
+    $sql = $mysqli->prepare ("insert into 'zakaz' values(?,?,?)"
+    $sql->bind_param("sss',$fio, $phone, $userid);
+    $sql->execute();
+  
 
 echo
 "</td>
