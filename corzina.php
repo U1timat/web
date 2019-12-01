@@ -59,7 +59,6 @@ function counter ($ud) //получаем количество товара
 }
 
 require_once 'd:/shop/access/conf_acc.php'
-$db="candyshop";
 $tovar = $_GET['id'];
 
 $link = mysqli_connect($host, $user, $password, $database) 
