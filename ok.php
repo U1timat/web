@@ -31,10 +31,9 @@ echo "<html>
 
 require_once 'd:/shop/access/conf_acc.php'
    
-$mysqli = new mysqli($host, $db_user, $db_pass, $db_name);
-if (mysqli_connect_errno()) {
-    printf("ошибка подключения: %s\n", mysqli_connect_error());
-    exit();
+ $link = mysqli_connect($host, $user, $password, $database) 
+    or die("Ошибка " . mysqli_error($link));
+   
 }
 
     $sql="insert into zakaz (fio,phone,userid) //вставляем запрос в базу на получение значений фамилии, телефона и идентификатора
