@@ -58,20 +58,17 @@ function counter ($ud) //получаем количество товара
 
 }
 
-$sqlhost="92.243.95.80"; //подключаемся к базе
-$sqluser="candyshop";
-$sqlpass="dEpd66_5";
+require_once 'd:/shop/access/conf_acc.php'
 $db="candyshop";
 $tovar = $_GET['id'];
-mysql_connect($sqlhost,$sqluser,$sqlpass)
-   or die("MySQL недоступна!".mysql_error());
-mysql_select_db($db) or die("Нет соединения с БД!".mysql_error());
+
+$link = mysqli_connect($host, $user, $password, $database) 
+    or die("Ошибка " . mysqli_error($link));
 mysql_query("set names 'utf8'");
 if(counter($tovar)==0)
 {
-    mysql_connect($sqlhost,$sqluser,$sqlpass)
-   or die("MySQL недоступна!".mysql_error());
-    mysql_select_db($db) or die("Нет соединения с БД!".mysql_error());
+$link = mysqli_connect($host, $user, $password, $database) 
+    or die("Ошибка " . mysqli_error($link));
     $sql="insert into corzina (id_tovar,id_user,quantyty)
 values('".$tovar."','".$_SESSION['userid']."',1)"
         or die(mysql_error());
@@ -113,14 +110,10 @@ echo "<table align='center' border='1'>
 $i=1;
 
 $amount;
-$sqlhost="92.243.95.80";
-$sqluser="candyshop";
-$sqlpass="dEpd66_5";
-$db="candyshop";
+require_once 'd:/shop/access/conf_acc.php'
 
-mysql_connect($sqlhost,$sqluser,$sqlpass)
-   or die("MySQL недоступна!".mysql_error());
-mysql_select_db($db) or die("Нет соединения с БД!".mysql_error());
+$link = mysqli_connect($host, $user, $password, $database) 
+    or die("Ошибка " . mysqli_error($link));
 mysql_query("set names 'utf8'");
 
 $sql="SELECT * from CORZINA where id_user='".$userd."'" or die(mysql_error());
