@@ -36,7 +36,7 @@ require_once 'd:/shop/access/conf_acc.php'
    
 }
 
-    $sql = $mysqli->prepare ("insert into 'zakaz' values(?,?,?)"
+    $sql = $mysqli->prepare ("insert into 'zakaz' values(?,?,?)");
     $sql->bind_param("sss',$fio, $phone, $userid);
     $sql->execute();
   
